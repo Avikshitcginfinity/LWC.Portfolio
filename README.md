@@ -1,3 +1,5 @@
+<img width="1884" height="875" alt="image" src="https://github.com/user-attachments/assets/63bab033-b311-4167-8984-58c850b8e82d" />
+
 # Salesforce DX Project
 
 Salesforce DX is a development approach that brings source-driven development, team collaboration, and continuous integration to the Salesforce Platform. Instead of working directly in an org through a web browser, you work with metadata as source files in a local DX project, track changes in version control, and deploy through automated processes.
