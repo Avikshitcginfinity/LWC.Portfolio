@@ -36,6 +36,16 @@
             padding: 52px 32px 44px;
             text-align: center;
             color: #ffffff;
+            position: relative;
+        }
+        .header-glow {
+            position: absolute;
+            top: -80px;
+            right: -120px;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.28), rgba(255,255,255,0));
         }
         .avatar-circle {
             width: 110px;
@@ -46,12 +56,31 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
             margin: 0 auto 22px;
         }
-        .avatar-initials  { font-size: 38px; font-weight: 700; letter-spacing: 3px; color: #fff; }
+        .avatar-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .avatar-initials  { font-size: 38px; font-weight: 700; letter-spacing: 3px; color: #fff; display: none; }
+        .avatar-fallback .avatar-initials { display: block; }
         .portfolio-name   { font-size: 2.4rem; font-weight: 700; margin-bottom: 10px; }
         .portfolio-title  { font-size: 1.15rem; color: rgba(255,255,255,0.88); font-style: italic; margin-bottom: 14px; }
         .portfolio-location { font-size: 0.95rem; color: rgba(255,255,255,0.72); }
+        .tagline-pill {
+            margin: 18px auto 0;
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: rgba(255,255,255,0.16);
+            border: 1px solid rgba(255,255,255,0.38);
+        }
 
         /* ── Sections ────────────────────────────────── */
         .portfolio-section {
@@ -68,6 +97,11 @@
             margin-bottom: 18px;
         }
         .about-text { font-size: 1rem; line-height: 1.85; color: #444; white-space: pre-wrap; }
+        .about-subtext {
+            margin-top: 12px;
+            color: #6b7b8d;
+            line-height: 1.75;
+        }
 
         /* ── Stats Row ───────────────────────────────── */
         .portfolio-stats {
@@ -99,6 +133,46 @@
         .stat-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1.5px; color: #8a9ab0; font-weight: 600; }
         .stat-value { font-size: 1.05rem; font-weight: 700; color: #1b4f72; }
 
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .skill-chip {
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: #e7f4ff;
+            color: #165a7d;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 1px solid #c5e4ff;
+        }
+
+        .projects-section { background: #f8fbff; }
+        .project-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+        .project-card {
+            border-radius: 14px;
+            padding: 16px;
+            background: #ffffff;
+            border: 1px solid #d9ebfb;
+            box-shadow: 0 6px 18px rgba(22,90,125,0.08);
+        }
+        .project-title {
+            margin: 0 0 8px;
+            color: #165a7d;
+            font-size: 1rem;
+        }
+        .project-text {
+            margin: 0;
+            color: #4e6378;
+            line-height: 1.6;
+            font-size: 0.92rem;
+        }
+
         /* ── Contact ─────────────────────────────────── */
         .contact-section { border-bottom: none; }
         .contact-links   { display: flex; flex-wrap: wrap; gap: 16px; }
@@ -111,6 +185,14 @@
             transition: all 0.2s ease;
         }
         .contact-item:hover { background: #2980b9; color: #fff; }
+
+        .portfolio-footer {
+            text-align: center;
+            padding: 18px 24px 22px;
+            color: #6b7b8d;
+            font-size: 0.95rem;
+            background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
+        }
 
         /* ── State Boxes ─────────────────────────────── */
         .state-box {
@@ -129,6 +211,20 @@
             padding: 6px 12px; border-radius: 6px;
             font-size: 0.9rem; word-break: break-all;
         }
+
+        @media (max-width: 680px) {
+            .portfolio-header { padding: 40px 20px 34px; }
+            .portfolio-name { font-size: 1.9rem; }
+            .portfolio-section { padding: 24px 20px; }
+            .portfolio-stats {
+                flex-direction: column;
+            }
+            .stat-card {
+                border-right: none;
+                border-bottom: 1px solid #dce8f3;
+            }
+            .portfolio-stats .stat-card:last-child { border-bottom: none; }
+        }
     </style>
 </head>
 <body>
@@ -145,7 +241,13 @@
 
         <!-- Header -->
         <div class="portfolio-header">
+            <div class="header-glow"></div>
             <div class="avatar-circle">
+                <img class="avatar-image"
+                     src="https://media.licdn.com/dms/image/v2/D5603AQHcB_49i62rFw/profile-displayphoto-scale_400_400/B56ZgM6mqbHcAo-/0/1752563348732?e=1784764800&amp;v=beta&amp;t=Q_ArE5ugTh6F0lDO0ZKqLAOPZvOfQI5501fNGm4Aa8w"
+                     alt="Avikshit Trivedi profile picture"
+                     referrerpolicy="no-referrer"
+                     onerror="this.style.display='none'; this.parentNode.classList.add('avatar-fallback');" />
                 <span class="avatar-initials">{!initials}</span>
             </div>
             <h1 class="portfolio-name">{!account.Name}</h1>
@@ -157,13 +259,17 @@
             <apex:outputPanel layout="block" rendered="{!hasLocation}">
                 <p class="portfolio-location">&#128205; {!location}</p>
             </apex:outputPanel>
+
+            <div class="tagline-pill">Aspiring Software Developer</div>
         </div>
 
         <!-- About Me -->
-        <apex:outputPanel layout="block" styleClass="portfolio-section"
-                          rendered="{!NOT(ISBLANK(account.Description))}">
+        <apex:outputPanel layout="block" styleClass="portfolio-section">
             <h2 class="section-title">About Me</h2>
-            <p class="about-text">{!account.Description}</p>
+            <p class="about-text">I am Avikshit Trivedi, an aspiring Software developer, I have made some projects in Python and MERN, Thankyou for visiting my portfolio</p>
+            <apex:outputPanel layout="block" rendered="{!NOT(ISBLANK(account.Description))}">
+                <p class="about-subtext">{!account.Description}</p>
+            </apex:outputPanel>
         </apex:outputPanel>
 
         <!-- Stats Row -->
@@ -190,6 +296,35 @@
             </apex:outputPanel>
         </div>
 
+        <div class="portfolio-section">
+            <h2 class="section-title">Core Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-chip">Python</span>
+                <span class="skill-chip">MERN Stack</span>
+                <span class="skill-chip">JavaScript</span>
+                <span class="skill-chip">Apex</span>
+                <span class="skill-chip">Lightning Web Components</span>
+            </div>
+        </div>
+
+        <div class="portfolio-section projects-section">
+            <h2 class="section-title">Project Highlights</h2>
+            <div class="project-cards">
+                <article class="project-card">
+                    <h3 class="project-title">Python Projects</h3>
+                    <p class="project-text">Built practical Python projects focused on clean logic, data handling, and problem solving.</p>
+                </article>
+                <article class="project-card">
+                    <h3 class="project-title">MERN Applications</h3>
+                    <p class="project-text">Created full-stack web apps using MongoDB, Express, React, and Node.js with responsive interfaces.</p>
+                </article>
+                <article class="project-card">
+                    <h3 class="project-title">Salesforce Portfolio</h3>
+                    <p class="project-text">Designed this portfolio in Salesforce using Lightning Web Components and Apex integration.</p>
+                </article>
+            </div>
+        </div>
+
         <!-- Contact -->
         <apex:outputPanel layout="block" styleClass="portfolio-section contact-section"
                           rendered="{!hasContact}">
@@ -209,6 +344,8 @@
                 </apex:outputPanel>
             </div>
         </apex:outputPanel>
+
+        <div class="portfolio-footer">Thankyou for visiting my portfolio.</div>
 
     </apex:outputPanel>
 

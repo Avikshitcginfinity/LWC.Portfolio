@@ -7,6 +7,25 @@ export default class MyPortfolio extends LightningElement {
     portfolio;
     hasError = false;
 
+    introText = 'I am Avikshit Trivedi, an aspiring Software developer, I have made some projects in Python and MERN, Thankyou for visiting my portfolio';
+
+    skills = ['Python', 'MERN Stack', 'JavaScript', 'Apex', 'Lightning Web Components'];
+
+    projectHighlights = [
+        {
+            title: 'Python Projects',
+            description: 'Built practical Python projects focused on clean logic, data handling, and problem solving.'
+        },
+        {
+            title: 'MERN Applications',
+            description: 'Created full-stack web apps using MongoDB, Express, React, and Node.js with responsive interfaces.'
+        },
+        {
+            title: 'Salesforce Portfolio',
+            description: 'Designed this portfolio in Salesforce using Lightning Web Components and Apex integration.'
+        }
+    ];
+
     @wire(getPortfolioAccount, { accountId: '$accountId' })
     wiredAccount({ error, data }) {
         if (data) {

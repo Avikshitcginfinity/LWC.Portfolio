@@ -27,6 +27,8 @@
     <template lwc:if={portfolio}>
         <div class="portfolio-wrapper">
 
+            <div class="header-glow" aria-hidden="true"></div>
+
             <!-- Hero Header -->
             <div class="portfolio-header">
                 <div class="avatar-circle">
@@ -39,15 +41,18 @@
                 <template lwc:if={hasLocation}>
                     <p class="portfolio-location">&#128205; {location}</p>
                 </template>
+
+                <div class="tagline-pill">Aspiring Software Developer</div>
             </div>
 
             <!-- About Me -->
-            <template lwc:if={portfolio.Description}>
-                <div class="portfolio-section">
-                    <h2 class="section-title">About Me</h2>
-                    <p class="about-text">{portfolio.Description}</p>
-                </div>
-            </template>
+            <div class="portfolio-section about-section">
+                <h2 class="section-title">About Me</h2>
+                <p class="about-text">{introText}</p>
+                <template lwc:if={portfolio.Description}>
+                    <p class="about-subtext">{portfolio.Description}</p>
+                </template>
+            </div>
 
             <!-- Stats Row -->
             <div class="portfolio-stats">
@@ -80,6 +85,27 @@
                 </template>
             </div>
 
+            <div class="portfolio-section">
+                <h2 class="section-title">Core Skills</h2>
+                <div class="skills-grid">
+                    <template for:each={skills} for:item="skill">
+                        <span key={skill} class="skill-chip">{skill}</span>
+                    </template>
+                </div>
+            </div>
+
+            <div class="portfolio-section projects-section">
+                <h2 class="section-title">Project Highlights</h2>
+                <div class="project-cards">
+                    <template for:each={projectHighlights} for:item="item">
+                        <article key={item.title} class="project-card">
+                            <h3 class="project-title">{item.title}</h3>
+                            <p class="project-text">{item.description}</p>
+                        </article>
+                    </template>
+                </div>
+            </div>
+
             <!-- Contact -->
             <template lwc:if={hasContact}>
                 <div class="portfolio-section contact-section">
@@ -100,6 +126,8 @@
                     </div>
                 </div>
             </template>
+
+            <div class="portfolio-footer">Thankyou for visiting my portfolio.</div>
 
         </div>
     </template>

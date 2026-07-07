@@ -1,5 +1,9 @@
 ![LWC Portfolio Screenshot](https://github.com/user-attachments/assets/63bab033-b311-4167-8984-58c850b8e82d)
 
+## Profile Photo
+
+![Avikshit Trivedi](https://media.licdn.com/dms/image/v2/D5603AQHcB_49i62rFw/profile-displayphoto-scale_400_400/B56ZgM6mqbHcAo-/0/1752563348732?e=1784764800&v=beta&t=Q_ArE5ugTh6F0lDO0ZKqLAOPZvOfQI5501fNGm4Aa8w)
+
 # LWC Assignment
 
 This repository contains a Salesforce DX project for a Lightning Web Component portfolio card built on top of Account data. The app includes an Apex controller, an LWC bundle, and a Visualforce page variant for presenting a profile-style portfolio inside Salesforce.
