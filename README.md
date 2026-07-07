@@ -60,4 +60,3 @@ git add .
 git commit -m "Add Salesforce LWC assignment"
 git push -u origin main
 ```
-
