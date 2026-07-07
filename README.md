@@ -3,9 +3,6 @@
 
 This repository contains a Salesforce DX project for a Lightning Web Component portfolio card built on top of Account data. The app includes an Apex controller, an LWC bundle, and a Visualforce page variant for presenting a profile-style portfolio inside Salesforce.
 
-## Preview
-
-The screenshot above shows the rendered portfolio component in Salesforce Lightning Experience.
 
 ## Features
 
